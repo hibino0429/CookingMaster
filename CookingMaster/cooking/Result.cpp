@@ -7,7 +7,7 @@ bool Result::Initialize()
 	flag = false;
 	timeCnt = 0;
 	bghandle = LoadGraph("./Graph/result.png");
-	sound.SetBGM("./Sound/“÷‚ğÄ‚­.ogg");
+	sound.SetBGM("./Sound/grill.ogg");
 	Rcarrot = LoadGraph("./Graph/Rcarrot.png");
 	Rcabbage = LoadGraph("./Graph/Rcabbage.png");
 	Rpotato = LoadGraph("./Graph/Rpotato.png");

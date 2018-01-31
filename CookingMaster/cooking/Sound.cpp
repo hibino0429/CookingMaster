@@ -10,7 +10,7 @@ bool Sound::Initialize()
 	SE[cabbage]  = LoadSoundMem("./Sound/cabbage.ogg");
 	SE[tomato]   = LoadSoundMem("./Sound/tomato.ogg");
 	SE[potato]   = LoadSoundMem("./Sound/potato.ogg");
-	SE[mouse]    = LoadSoundMem("./Sound/cabbage.ogg");
+	SE[mouse]    = LoadSoundMem("./Sound/mouse.ogg");
 	SE[grill]    = LoadSoundMem("./Sound/grill.ogg");
 	SE[bell]     = LoadSoundMem("./Sound/EnterShop.ogg");
 	SE[bell2]    = LoadSoundMem("./Sound/Thankyou.ogg");
@@ -28,7 +28,7 @@ bool Sound::Initialize()
 	}
 	return true;
 }
-//BGM処理は本当はこうするべきだった....↓マスターアップ時に修正する予定
+
 void Sound::SetBGM(const TCHAR *FileName)
 {
 	BGM = LoadSoundMem(FileName);

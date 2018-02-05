@@ -249,7 +249,7 @@ bool Note::Initialize()
 	check[3] = LoadDivGraph("./Graph/potato.png",  4, 4, 1, 100, 100, move.pic_potato);
 	check[4] = LoadDivGraph("./Graph/brory.png",   4, 4, 1, 100, 100, move.pic_broccoli);
 	check[5] = LoadDivGraph("./Graph/tomato.png",  4, 4, 1, 100, 100, move.pic_tomato);
-	check[6] = LoadDivGraph("./Graph/rat.png",     4, 4, 1, 100, 100, move.pic_mouse);
+	check[6] = LoadDivGraph("./Graph/rat.png",     5, 5, 1, 141, 47, move.pic_mouse);
 	move.animeCnt = 0;
 	move.state = off;
 	bez.bez = move.start;
@@ -371,6 +371,7 @@ void Note::Draw()
 	SetDrawMode(DX_DRAWMODE_BILINEAR);	//実数ピクセル補間
 	if (move.state == come)	//死ぬ前の音符
 	{
+		int animTable[] = { 0,1,2,3 };
 		switch (data.ID)
 		{
 		case carrot:  DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_carrot[0],   true); break;
@@ -379,7 +380,10 @@ void Note::Draw()
 		case cabbage: DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_cabbage[0],  true); break;
 		case potato:  DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_potato[0],   true); break;
 		case broccoli:DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_broccoli[0], true); break;
-		case mouse:   DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_mouse[0],    true); break;
+		case mouse:
+			move.animeCnt++;
+			DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_mouse[animTable[(move.animeCnt /3 )% 4]], true);
+			break;
 		}
 		
 	}
@@ -438,11 +442,8 @@ void Note::Draw()
 		}
 		break;
 		case mouse:
-			if ((move.animeCnt / 3) <= 3) 
-			DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_mouse[3], true);
-			else
-			move.state = off;
-			break;
+			DrawRotaGraphF(move.pos.x, move.pos.y, 1.0, 0.0, move.pic_mouse[4], true);
+			move.state = off; break;
 		}
 		
 	}

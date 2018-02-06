@@ -19,7 +19,7 @@ bool Result::Initialize()
 	Ronion = LoadGraph("./Graph/Ronion.png");
 
 	LoadDivGraph("./Graph/effusion1.png", 3, 3, 1, 469,281, eff[0].pic);
-	LoadDivGraph("./Graph/effusion2.png", 3, 3, 1, 409, 246, eff[1].pic);
+	LoadDivGraph("./Graph/effusion2.png", 3, 3, 1, 190, 235, eff[1].pic);
 	eff[0].init.initialize_E(236, 358, 300);
 	eff[1].init.initialize_E(730, 380, 350);
 
@@ -155,10 +155,10 @@ int Result::judgeScore()
 	}
 	if (Score() >= 200)
 	{
-		eff_score = Great;
+		eff_score = Bad;
 		return 33;
 	}
-	eff_score = Bad;
+	eff_score = Great;
 	return 10;
 }
 

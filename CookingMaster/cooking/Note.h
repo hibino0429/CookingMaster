@@ -86,7 +86,7 @@ struct Move		//音符の動き（移動とアニメーション）
 		pic_potato[4],
 		pic_tomato[4],
 	  pic_broccoli[4],
-		 pic_mouse[4],
+		 pic_mouse[5],
 		 pic_onion[4];
 
 

@@ -34,7 +34,12 @@ public:
 		float angle;
 	};
 	Cursor cursor;			//カーソル
-	int bgHandle;			//背景ハンドル
+	struct Bg
+	{
+		POS p;
+		int bgHandle;			//背景ハンドル
+	}bg;
+
 	struct Logo
 	{
 		POS pos;

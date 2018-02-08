@@ -2,6 +2,58 @@
 #include "Usingheaders.h"
 #include "Game_OP.h"
 #include <math.h>
+
+void BackScroll(int dir, Title::POS& start, float end, float speed, int handle)
+{
+	enum { Up_Down, sideways };		//縦方向、横方向
+	//縦方向スクロール
+	if (dir == Up_Down)
+	{
+		start.y += speed;
+		if (speed > 0)
+		{
+			if (start.y >= end)
+			{
+				start.y = 0;
+			}
+			DrawGraphF(start.x, start.y, handle, true);
+			DrawGraphF(start.x, start.y - end, handle, true);
+		}
+		if (speed < 0)
+		{
+			if (start.y <= -end)
+			{
+				start.y = 0;
+			}
+			DrawGraphF(start.x, start.y, handle, true);
+			DrawGraphF(start.x, start.y + end, handle, true);
+		}
+	}
+	//横方向スクロール
+	if (dir == sideways)
+	{
+		start.x += speed;
+		if (speed < 0)
+		{
+			if (start.x <= -end)
+			{
+				start.x = 0;
+			}
+			DrawGraphF(start.x, start.y, handle, true);
+			DrawGraphF(start.x + end, start.y, handle, true);
+		}
+		if (speed > 0)
+		{
+			if (start.x >= end)
+			{
+				start.x = 0;
+			}
+			DrawGraphF(start.x, start.y, handle, true);
+			DrawGraphF(start.x - end, start.y, handle, true);
+		}
+	}
+}
+
 bool Title::Initialize()
 {
 	sound.Initialize();
@@ -11,7 +63,7 @@ bool Title::Initialize()
 	startFlag = false;
 	endFlag = false;
 	int c[5];
-	c[0] = bgHandle = LoadGraph("./Graph/bg_title.png");
+	c[0] = bg.bgHandle = LoadGraph("./Graph/bg_title.png");
 	c[1] = logo.handle = LoadGraph("./Graph/logo.png");
 	c[2] = s_button.handle = LoadGraph("./Graph/start_button.png");
 	c[3] = e_button.handle = LoadGraph("./Graph/exit_button.png");
@@ -125,7 +177,8 @@ void Title::Draw()
 {
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, a);		//ブレンドモードαを設定
 	SetDrawMode(DX_DRAWMODE_BILINEAR);				//実数ピクセル補間
-	DrawGraph(0, 0, bgHandle, true);
+	//BackScroll(1, bg.p, 960, 3, bg.bgHandle);
+	DrawGraph(0, 0, bg.bgHandle, true);
 	DrawRotaGraphF(logo.pos.x, logo.pos.y, 1.1f, 0, logo.handle, true);
 	DrawGraphF(s_button.pos.x, s_button.pos.y, s_button.handle, true);
 	DrawGraphF(e_button.pos.x, e_button.pos.y, e_button.handle, true);

@@ -93,4 +93,9 @@
       <UniqueIdentifier>{9cb01ddc-7639-4fe5-b7fe-515dc4482265}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ICON.rc">
+      <Filter>icon</Filter>
+    </ResourceCompile>
+  </ItemGroup>
 </Project>

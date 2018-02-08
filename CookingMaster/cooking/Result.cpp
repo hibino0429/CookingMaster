@@ -148,12 +148,12 @@ void Result::pos_initilize()
 }
 int Result::judgeScore()
 {
-	if (Score() >= 100 && Score() < 200)		//スコアを受けて
+	if (Score() >= 350 && Score() < 500)		//スコアを受けて
 	{
 		eff_score = Good;
 		return 21;								//表す画像の個数を返す
 	}
-	if (Score() >= 200)
+	if (Score() >= 500)
 	{
 		eff_score = Great;
 		return 33;

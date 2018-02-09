@@ -26,37 +26,21 @@ public:
 		Start,
 		End
 	};
-	struct Cursor
+	struct TitleObj
 	{
 		POS pos;
 		SELECT select;
 		int handle;
 		float angle;
 	};
-	Cursor cursor;			//カーソル
-	struct Bg
-	{
-		POS p;
-		int bgHandle;			//背景ハンドル
-	}bg;
+	TitleObj logo;
+	TitleObj back;
+	TitleObj cursor;
+	TitleObj s_button;
+	TitleObj e_button;
 
-	struct Logo
-	{
-		POS pos;
-		int handle;		
-	};
-	Logo logo;				//タイトルロゴ
-	struct Startbutton
-	{
-		POS pos;
-		int handle;
-	};
-	Startbutton s_button;	//スタートボタン
-	struct Endbutton
-	{
-		POS pos;
-		int handle;
-	};
-	Endbutton e_button;		//エンドボタン
+	float speed;
+	float cycle;
+	float shake;
 };
 

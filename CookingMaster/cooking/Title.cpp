@@ -3,6 +3,20 @@
 #include "Game_OP.h"
 #include <math.h>
 
+void Raster_Scrool(const float &X, const float &Y, float Cycle, float Shake, float speed,int handle)
+{
+	const float PI = 3.14159265358979323846f;
+	int Width = 0;
+	int Height = 0;
+	static float Correction = 0;
+	GetGraphSize(handle, &Width, &Height);
+	for (int i = 0; i < Height; ++i)
+	{
+		DrawRectGraphF(X - Width / 2.0f + (float)cos((i + Correction) / 180.0f + PI + Cycle) * Shake,
+			Y - Height / 2 + i, 0, i, Width, 1, handle, true, false);
+	}
+	Correction += speed;
+}
 void BackScroll(int dir, Title::POS& start, float end, float speed, int handle)
 {
 	enum { Up_Down, sideways };		//縦方向、横方向
@@ -63,7 +77,7 @@ bool Title::Initialize()
 	startFlag = false;
 	endFlag = false;
 	int c[5];
-	c[0] = bg.bgHandle = LoadGraph("./Graph/bg_title.png");
+	c[0] = back.handle = LoadGraph("./Graph/bg_title.png");
 	c[1] = logo.handle = LoadGraph("./Graph/logo.png");
 	c[2] = s_button.handle = LoadGraph("./Graph/start_button.png");
 	c[3] = e_button.handle = LoadGraph("./Graph/exit_button.png");
@@ -82,11 +96,15 @@ bool Title::Initialize()
 	cursor.angle = 0;
 	cursor.pos.SetPOS(-5000, 0);
 	cursor.select = Start;
+	speed = 10;
+	cycle = 10;
+	shake = 10;
 	return true;
 }
 
 void Title::Update()
 {
+	
 	sound.PlayBGM_LOOP();
 	float l_dy = (150.f - logo.pos.y) / 20.0f;	//フワッとロゴを移動させる
 	logo.pos.y += l_dy;
@@ -171,15 +189,17 @@ void Title::Update()
 	{
 		a -= 2;
 	}
+	
+	
 }
 
 void Title::Draw()
 {
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, a);		//ブレンドモードαを設定
 	SetDrawMode(DX_DRAWMODE_BILINEAR);				//実数ピクセル補間
-	//BackScroll(1, bg.p, 960, 3, bg.bgHandle);
-	DrawGraph(0, 0, bg.bgHandle, true);
-	DrawRotaGraphF(logo.pos.x, logo.pos.y, 1.1f, 0, logo.handle, true);
+	//BackScroll(1, back.pos, 960, 3, back.handle);
+	DrawGraph(0, 0, back.handle, true);
+	Raster_Scrool(logo.pos.x, logo.pos.y, cycle,shake,speed, logo.handle);
 	DrawGraphF(s_button.pos.x, s_button.pos.y, s_button.handle, true);
 	DrawGraphF(e_button.pos.x, e_button.pos.y, e_button.handle, true);
 	DrawRotaGraphF(cursor.pos.x, cursor.pos.y,1, cursor.angle * static_cast<float>(M_PI) / 180.f, cursor.handle, true);

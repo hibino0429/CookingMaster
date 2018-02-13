@@ -23,6 +23,7 @@
 + サウンドプログラム   
 + UIプログラム(タイトル)
 + SEのリポジトリ->https://github.com/tonarinohito/cookingsound
++ 作った曲->https://soundcloud.com/neigborsound/sets/cookingmaster
 ### **jiyoung-m https://github.com/jiyoung-m**
 + メイン企画
 + 音符(野菜、ネズミ),背景,UI,メインキャラクタ(女の子)の彩色,サブキャラクタ
@@ -45,6 +46,6 @@ Cubase8.5 Pro
 
 外部ライブラリ **DxLib** http://dxlib.o.oo7.jp/
 
-
+フリーゲーム夢現に投稿しました https://freegame-mugen.jp/action/game_6944.html
 
 *Wrote By Neighbor Sound*

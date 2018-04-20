@@ -26,7 +26,7 @@
 + 作った曲->https://soundcloud.com/neigborsound/sets/cookingmaster
 ### **jiyoung-m https://github.com/jiyoung-m**
 + メイン企画
-+ 音符(野菜、ネズミ),背景,UI,メインキャラクタ(女の子)の彩色,サブキャラクタ
++ 音符(野菜、ネズミ)デザイン,背景デザイン,UIデザイン,メインキャラクタ(女の子)の彩色,サブキャラクタデザイン
 + アニメーションプログラム(キャラクタ)
 + UIプログラム(リザルト)
 ### **m.yokota https://github.com/yokota0717**

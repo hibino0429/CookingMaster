@@ -28,8 +28,8 @@ private:
 public:
 
 	TYPE se_type;
-	int    SE[SENUM];
-	int    BGM;
+	int  SE[SENUM];
+	int  BGM;
 	bool Initialize();
 	void SetBGM(const TCHAR *FileName);	//BGMとして使いたいファイルのパスを指定
 	int  PlayBGM_BACK();				//BGMをバックグラウンド再生（ループなし）

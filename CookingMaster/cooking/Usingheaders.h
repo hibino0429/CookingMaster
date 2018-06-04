@@ -18,5 +18,5 @@
 #include <string>
 #include <sstream> 
 #include "Metronome.h"
-
+#include <memory>
 using namespace std;

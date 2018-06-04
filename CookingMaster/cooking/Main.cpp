@@ -1,4 +1,8 @@
 #include "Usingheaders.h"
+#include <memory>
+#define _CRTDBG_MAP_ALLOC
+#define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define malloc(X) _malloc_dbg(X, _CLIENT_BLOCK, __FILE__, __LINE__)xpand(p, s)         _expand_dbg(p, s, _NORMAL_BLOCK, __FILE__, __LINE__)
 void message_box()
 {
 	int flag;
@@ -16,6 +20,7 @@ SCREEN_HEIGHT = 540;
 
 int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	//ログ消し
 	SetOutApplicationLogValidFlag(FALSE);
 	//ウインドウタイトルを変更
@@ -29,14 +34,14 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 
 	//最初に映るシーン
 #ifdef _DEBUG
-	manager->PushScene(new Result);
+	manager->InsertScene(new Result);
 #else
-	manager->PushScene(new Title);
+	manager->InsertScene(new Title);
 #endif 
 
 	
 
-	while(ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 && !manager->isEmpty())
+	while(ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
 		Updata_Key();
 		manager->GetCurrentScene()->Update();
@@ -48,6 +53,7 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 		}
 	}
 	manager->GetCurrentScene()->Finalize();
+	delete manager->GetCurrentScene();
     DxLib_End();
     return 0;
 }

@@ -65,17 +65,17 @@ void Sound::PlaySE(int type)
 	switch (type)
 	{
 	
-	case carrot:      PlaySoundMem(SE[carrot],		 DX_PLAYTYPE_BACK);	break;
-	case onion:       PlaySoundMem(SE[onion],		 DX_PLAYTYPE_BACK);	break;
-	case broccoli:    PlaySoundMem(SE[broccoli],	 DX_PLAYTYPE_BACK);	break;
-	case cabbage:     PlaySoundMem(SE[cabbage],		 DX_PLAYTYPE_BACK);	break;
-	case tomato:      PlaySoundMem(SE[tomato],		 DX_PLAYTYPE_BACK);	break;
-	case potato:	  PlaySoundMem(SE[potato],		 DX_PLAYTYPE_BACK);	break;
-	case mouse:       PlaySoundMem(SE[mouse],		 DX_PLAYTYPE_BACK);	break;
-	case grill:		  PlaySoundMem(SE[grill],		 DX_PLAYTYPE_BACK);	break;
-	case bell:		  PlaySoundMem(SE[bell],		 DX_PLAYTYPE_BACK);	break;
-	case bell2:		  PlaySoundMem(SE[bell2],        DX_PLAYTYPE_BACK);	break;
-	case appear:	  PlaySoundMem(SE[appear],		 DX_PLAYTYPE_BACK);	break;
+		case carrot:      PlaySoundMem(SE[carrot],		 DX_PLAYTYPE_BACK);	break;
+		case onion:       PlaySoundMem(SE[onion],		 DX_PLAYTYPE_BACK);	break;
+		case broccoli:    PlaySoundMem(SE[broccoli],	 DX_PLAYTYPE_BACK);	break;
+		case cabbage:     PlaySoundMem(SE[cabbage],		 DX_PLAYTYPE_BACK);	break;
+		case tomato:      PlaySoundMem(SE[tomato],		 DX_PLAYTYPE_BACK);	break;
+		case potato:	  PlaySoundMem(SE[potato],		 DX_PLAYTYPE_BACK);	break;
+		case mouse:       PlaySoundMem(SE[mouse],		 DX_PLAYTYPE_BACK);	break;
+		case grill:		  PlaySoundMem(SE[grill],		 DX_PLAYTYPE_BACK);	break;
+		case bell:		  PlaySoundMem(SE[bell],		 DX_PLAYTYPE_BACK);	break;
+		case bell2:		  PlaySoundMem(SE[bell2],        DX_PLAYTYPE_BACK);	break;
+		case appear:	  PlaySoundMem(SE[appear],		 DX_PLAYTYPE_BACK);	break;
 					  
 	}				  	  
 }			

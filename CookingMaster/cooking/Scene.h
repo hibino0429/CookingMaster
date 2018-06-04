@@ -4,6 +4,7 @@
 class Scene
 {
 public:
+	virtual ~Scene() {};
 	virtual bool Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void Draw() = 0;

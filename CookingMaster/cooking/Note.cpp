@@ -167,22 +167,6 @@ void Note::SetBezierData(Note& note) {
 	}
 }
 
-//使わなくなった
-void Note::SetSpeed(Note& note) {
-	switch (note.move.note_type) {
-	case N_one:
-		note.move.speed = float(((630 / 2) - (-imageSizeX / 2)) / quarterNote);	//1msで何ピクセル移動するか
-		break;
-	case N_rest:
-		note.move.speed = float(((630 / 2) - (-imageSizeX / 2)) / halfNote);	//1msで何ピクセル移動するか
-		break;
-	case N_mouse:
-		//note.move.speed = -1.0f;	//1msで何ピクセル移動するか
-		note.move.speed = float(((SCREEN_WIDIH / 2) - (-imageSizeX / 2)) / dottedHalfNote);	//1msで何ピクセル移動するか
-		break;
-	}
-}		
-
 //バッド判定
 bool Note_Check_Bad(int c, int j)
 {
